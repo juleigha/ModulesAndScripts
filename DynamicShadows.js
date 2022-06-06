@@ -8,7 +8,6 @@ $(document).scroll(function(e) {
 	var shadowRGB = "rgba(0, 0, 0, 0.8)";
 	var lightSource = window.pageYOffset - 20;
 	shadowOffSetDiff -=1;
-	$("body .overlay").css("opacity",window.pageYOffset/600);
 	$(".lightSource-shadow").each(function() {
 		var hgt = $(this).height();
 		var shadowOffSet = (this.offsetTop - (lightSource ) ) / 35;
