@@ -1,4 +1,5 @@
-// This gives the effect of a light source on an html page
+// This gives the effect of a light source on a page 
+// example at https://sqedg.com/Portfolio/dynamicShadows.html
 
 var scroll = window.pageYOffset;
 var shadowOffSetDiff = 0;
