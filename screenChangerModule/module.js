@@ -1,3 +1,5 @@
+//This Module allows you to add dynamic screens to a single page. Updates the Nav simultaneously.
+
 class Page {
   constructor(name, cls, icon) {
     this.onload = onload;
