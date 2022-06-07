@@ -1,5 +1,5 @@
 // This gives the effect of a light source on a page 
-// example at https://sqedg.com/Portfolio/dynamicShadows.html
+// example at https://sqedg.com/JuliasPortfolio/DynamicShadows/
 
 var staticLight = 200; // light source distance from top
 changeLight();
