@@ -9,7 +9,6 @@ $(document).ready(function() {
   var divDegree = 0;
   $(".main_div").each(function(i) {
      var hght = Math.ceil($(this).children(".content").height()/ scrollValue) * scrollValue;
-     // var degrees = Math.ceil( ((360 / $(".main_div").length) / (hght - scrollValue) )/ (scrollValue/10000) ) * (scrollValue/10000);
      var degrees = ((360 / $(".main_div").length) / (hght) );
      $(this).css("top",htmlHeight);
      htmlHeight += hght;
