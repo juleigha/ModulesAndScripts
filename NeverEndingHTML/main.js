@@ -1,4 +1,4 @@
-// By Julia Ahlquist
+// html will loop around to the top. Page location displayed in degrees
 
 $(document).ready(function() {
   var scrollValue = 15;
