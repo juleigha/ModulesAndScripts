@@ -13,22 +13,28 @@
     <title></title>
   </head>
   <body id="body">
-    lorem ipsup
+    <div id="topNav"> </div>
     <script type="module">
       import * as pages from "./module.js";
 
-      var nav = new pages.Nav("nav1");
-      nav.AddToDoc("body");
+      var nav = new pages.Nav("nav1","#topNav");
 
-      var page1 = new pages.Page("testPage","one",()=>{}, "");
-      page1.AddContent("<h1>Hello World</h1>");
-      nav.AddPage(page1);
-      var page2 = new pages.Page("testPage2","two",()=>{}, "");
-      page2.AddContent("<h1>Hello World2</h1>");
-      nav.AddPage(page2);
+      var allPages = {
+        page1: {
+          nav : new pages.Page("Page 1","page1","body"),
+          content: "<h1>Example 1</h1><p>dolor amet</p>"
+        },
+        page2: {
+          nav : new pages.Page("Page 2","page2","body"),
+          content: "<h1>Example 2</h1><p>lorem ipsum</p>"
+        }
+      }
 
-      page1.Activate();
+      pages.build(nav, allPages);
+
+      page1.nav.Activate();
 
     </script>
   </body>
 </html>
+
