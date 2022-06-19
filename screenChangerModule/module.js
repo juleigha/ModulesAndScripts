@@ -1,49 +1,65 @@
 //This Module allows you to add dynamic screens to a single page. Updates the Nav simultaneously.
 
+// creates an element rod nav and an element for content 
 class Page {
-  constructor(name, cls, icon) {
+  constructor(name, cls, contentParent, icon) {
+    this.name = name;
     this.onload = onload;
     this.icon = icon;
-    this.element = document.createElement("li");
-    this.element.id = name;
-    this.element.innerText = name;
+    this.navElement = document.createElement("li");
+    this.navElement.id = name;
+    this.navElement.innerText = name;
     this.pageDiv = document.createElement("div");
     this.pageDiv.classList.add("hidden");
     this.pageDiv.classList.add(cls);
-    document.querySelector("body").append(this.pageDiv);
+    this.pageDiv.id = "divFor"+name;
+    document.querySelector(contentParent).append(this.pageDiv);
   }
   AddContent (html) {
     this.pageDiv.innerHTML = html;
   }
   Inactivate () {
+    console.log(this.pageDiv.classList);
     this.pageDiv.classList.add("hidden");
   }
   Activate () {
     this.pageDiv.classList.remove("hidden");
   }
 }
+
+//creates a nav element and adds navigation function
 class Nav {
-  constructor(name){
-    this.pages = [];
+  constructor(name,container){
+    this.pages = {};
     this.element = document.createElement("ul");
     this.name = name;
     this.element.id = name;
     this.element.onclick = (e)=>{
-      this.pages.forEach((page, i) => {
-        page.Inactivate();
+      Object.keys(this.pages).forEach((page, i) => {
+        this.pages[page].Inactivate();
       });
-      this.pages[e.srcElement.getAttribute("data-index-num")].Activate();
+      this.pages[(e.srcElement.id).replace("divFor","")].Activate();
     }
+    this.AddToDoc(container);
   }
   AddToDoc (parentQuery) {
     this.element.remove();
     document.querySelector(parentQuery).append(this.element);
   }
   AddPage (page) {
-    page.element.dataset.indexNum = this.pages.length;
-    this.pages[this.pages.length] = page;
-    this.element.append(page.element);
+    this.pages[page.name] = page;
+    this.element.append(page.navElement);
   }
 }
 
-export {Nav, Page};
+//builds nav and page objects into a site
+function build(nav, allPages) {
+  Object.keys(allPages).forEach((pageName, i) => {
+    console.log(allPages[pageName].nav,allPages[pageName].content);
+    (allPages[pageName].nav).AddContent(allPages[pageName].content);
+    nav.AddPage(allPages[pageName].nav);
+
+  });
+}
+
+export {Nav, Page, build};
