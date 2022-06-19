@@ -55,7 +55,6 @@ class Nav {
 //builds nav and page objects into a site
 function build(nav, allPages) {
   Object.keys(allPages).forEach((pageName, i) => {
-    console.log(allPages[pageName].nav,allPages[pageName].content);
     (allPages[pageName].nav).AddContent(allPages[pageName].content);
     nav.AddPage(allPages[pageName].nav);
 
