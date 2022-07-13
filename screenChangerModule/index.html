@@ -20,18 +20,18 @@
       var nav = new pages.Nav("nav1","#topNav");
 
       var allPages = {
-        page1: {
-          nav : new pages.Page("Page 1","page1","body"),
+        Page1: {
+          nav : new pages.Page("Page 1"),
           content: "<h1>Example 1</h1><p>dolor amet</p>"
         },
-        page2: {
-          nav : new pages.Page("Page 2","page2","body"),
+        Page2: {
+          nav : new pages.Page("Page 2"),
           content: "<h1>Example 2</h1><p>lorem ipsum</p>"
         }
       }
-
-      pages.build(nav, allPages);
-
+      var parent = "body";
+      pages.build(nav, allPages, parent);
+      
       page1.nav.Activate();
 
     </script>
