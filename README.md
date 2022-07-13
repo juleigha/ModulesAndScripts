@@ -8,3 +8,9 @@ For Firebase - upadate and get a collection and with ease
 
 # budgetMath.js 
 For calculating an anual budget into smaller time spans
+
+# Dynamic Shadows 
+Gives a page a close light source (shadows move)
+
+# Screen Changer 
+Allows for the quick creation of a functioning navigation 
